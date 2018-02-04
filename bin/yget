@@ -1,0 +1,29 @@
+#! /usr/bin/env sh
+
+if [ -f /etc/yget.conf ]; then
+    . /etc/yget.conf
+fi
+
+if [ -f $HOME/.config/yget.conf ]; then
+    . "$HOME/.config/yget.conf"
+fi
+
+ydl_cleanup_pid(){
+    rm -f err log stop *.pid
+}
+
+ydl_kill_pid(){
+    kill "$(cat *.pid)"
+    ydl_cleanup_pid
+}
+
+if [ ! -z $1 ]; then
+    if [ "$1" = "-k" ]; then
+        ydl_kill_pid
+        ydl_cleanup_pid
+    else
+        PID=$(ydl_echo_pid $@)
+        echo "$PID" | tee "$PID.pid"
+        ydl_supervise_pid &
+    fi
+fi

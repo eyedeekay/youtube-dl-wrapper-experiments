@@ -1,0 +1,22 @@
+#! /usr/bin/env sh
+
+ydl_cleanup_pid(){
+    rm -f err log stop *.pid
+}
+
+ydl_find_pid(){
+    if [ $(ps aux | grep "$(cat *.pid)") ]; then
+        true
+    fi
+}
+
+ydl_watch_pid(){
+    if [ -f *.pid ]; then
+        while [ ydl_find_pid ]; do
+            sleep 5
+        done
+        ydl_cleanup_pid
+    fi
+}
+
+ydl_watch_pid
