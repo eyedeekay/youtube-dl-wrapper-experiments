@@ -1,0 +1,16 @@
+#! /usr/bin/env sh
+
+if [ -f /etc/yget.conf ]; then
+    . /etc/yget.conf
+fi
+
+if [ -f $HOME/.config/yget.conf ]; then
+    . "$HOME/.config/yget.conf"
+fi
+
+ydl_do_pid(){
+    youtube-dl $YGET_youtubedl_opts $@ 1>log 2>err &
+    echo "$!"
+}
+
+ydl_do_pid $@

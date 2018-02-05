@@ -1,7 +1,7 @@
 #! /usr/bin/env sh
 
 ydl_cleanup_pid(){
-    rm -f err log stop *.pid
+    rm -f stop *.pid
 }
 
 ydl_find_pid(){
@@ -10,10 +10,19 @@ ydl_find_pid(){
     fi
 }
 
+ydl_kill_pid(){
+    kill "$(cat *.pid)"
+    ydl_cleanup_pid
+}
+
 ydl_watch_pid(){
     if [ -f *.pid ]; then
         while [ ydl_find_pid ]; do
-            sleep 5
+            if [ "$(cat stop)" = "y" ]; then
+                ydl_kill_pid
+            else
+                sleep 5
+            fi
         done
         ydl_cleanup_pid
     fi

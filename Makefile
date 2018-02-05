@@ -1,9 +1,13 @@
 
 install:
 	install -m755 bin/yget /usr/bin
-	install -m755 bin/ydl_supervise_pid /usr/bin
-	install -m755 bin/ydl_echo_pid /usr/bin
+	mkdir -p /usr/lib/yget
+	install -m755 lib/ydl_supervise_pid /usr/lib/yget
+	install -m755 lib/ydl_echo_pid /usr/lib/yget
+	install -m755 lib/ydl_get_metadata /usr/lib/yget
 
+remove:
+	rm -rf /usr/bin/yget /usr/lib/yget
 
 clean:
 	yget -k; \

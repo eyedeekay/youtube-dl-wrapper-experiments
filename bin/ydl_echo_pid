@@ -1,8 +1,0 @@
-#! /usr/bin/env sh
-
-ydl_do_pid(){
-    youtube-dl $@ 1>log 2>err &
-    echo "$!"
-}
-
-ydl_do_pid $@
