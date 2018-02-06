@@ -1,10 +1,31 @@
 #! /usr/bin/env sh
 
-YGET_json="$(/usr/bin/youtube-dl -j $@)"
+if [ -f /etc/yget.conf ]; then
+    . /etc/yget.conf
+fi
 
-YGET_title=$(echo "$YGET_json" | jq -cr '. | { title }' | sed 's|{"title":||g' | tr -d '}')
-YGET_id=$(echo "$YGET_json" | jq -cr '. | { id }' | sed 's|{"id":||g' | tr -d '}')
-YGET_webpage_url=$(echo "$YGET_json" | jq -cr '. | { webpage_url }' | sed 's|{"webpage_url":||g' | tr -d '}')
-YGET_uploader=$(echo "$YGET_json" | jq -cr '. | { uploader }' | sed 's|{"uploader":||g' | tr -d '}')
-YGET_description=$(echo "$YGET_json" | jq -cr '. | { description }' | sed 's|{"description":||g' | tr -d '}')
+if [ -f $HOME/.config/yget.conf ]; then
+    . "$HOME/.config/yget.conf"
+fi
 
+if [ ! -f vars.sh ]; then
+    YGET_json="$(/usr/bin/youtube-dl $YGET_youtubedl_opts -j $@)"
+    YGET_dlurl="$(/usr/bin/youtube-dl $YGET_youtubedl_opts -g $@)"
+
+    YGET_title=$(echo "$YGET_json" | jq -cr '. | { title }' | sed 's|{"title":"||g' | tr -d '"}')
+    YGET_id=$(echo "$YGET_json" | jq -cr '. | { id }' | sed 's|{"id":"||g' | tr -d '"}')
+    YGET_webpage_url=$(echo "$YGET_json" | jq -cr '. | { webpage_url }' | sed 's|{"webpage_url":"||g' | tr -d '"}')
+    YGET_uploader=$(echo "$YGET_json" | jq -cr '. | { uploader }' | sed 's|{"uploader":"||g' | tr -d '"}')
+    YGET_description=$(echo "$YGET_json" | jq -cr '. | { description }' | sed 's|{"description":"||g' | tr -d '"}')
+
+    echo "YGET_title=$YGET_title
+    YGET_id=$YGET_id
+    YGET_webpage_url=$YGET_webpage_url
+    YGET_uploader=$YGET_uploader
+    YGET_description=$YGET_description
+    YGET_dlurl=$YGET_dlurl
+    " | tee vars.sh
+else
+    . vars.sh
+    echo "YGET_resume=yes" | tee -a vars.sh
+fi
