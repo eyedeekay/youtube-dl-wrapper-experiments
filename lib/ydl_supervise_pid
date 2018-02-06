@@ -20,6 +20,7 @@ ydl_watch_pid(){
         while [ ydl_find_pid ]; do
             if [ "$(cat stop)" = "y" ]; then
                 ydl_kill_pid
+                break
             else
                 sleep 5
             fi
