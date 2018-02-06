@@ -10,6 +10,7 @@ fi
 
 if [ ! -f vars.sh ]; then
     YGET_json_nop="$(/usr/bin/youtube-dl --no-playlist $YGET_youtubedl_opts -j $@)"
+    echo '<v^**********--------**********^v>'
     YGET_json="$(/usr/bin/youtube-dl $YGET_youtubedl_opts -j $@)"
     YGET_dlurl="$(/usr/bin/youtube-dl $YGET_youtubedl_opts -g $@)"
 
