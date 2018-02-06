@@ -29,7 +29,9 @@ if [ ! -z $1 ]; then
             echo "$PID" | tee "$PID.pid"
             /usr/lib/yget/ydl_supervise_pid &
         else
-            mkdir -p "$YGET_uploader"
+            if [ ! -d "$YGET_uploader" ]; then
+                mkdir -p "$YGET_uploader"
+            fi
             mv vars.sh "$YGET_uploader"
             cd "$YGET_uploader" || exit
             mkfifo stop
