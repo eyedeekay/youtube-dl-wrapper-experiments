@@ -18,6 +18,7 @@ clean:
 
 deb:
 	checkinstall --default \
+		--fstrans=yes \
 		--install=no \
 		--pkgname='yget' \
 		--pkgversion='0.1' \
@@ -25,7 +26,6 @@ deb:
 		--maintainer='problemsolver@openmailbox.org' \
 		--pakdir=../ \
 		--requires='youtube-dl' \
-		--nodoc \
 		--deldoc=yes \
 		--deldesc=yes \
 		--backup=no
