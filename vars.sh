@@ -1,8 +1,0 @@
-YGET_title=The Lone Gunmen 1x01   Pilot
-YGET_id=EjbQ-BDh4PU
-YGET_webpage_url=https://www.youtube.com/watch?v=EjbQ-BDh4PU
-YGET_uploader=BlackTDCMessiah
-YGET_description=
-YGET_dlurl=https://r1---sn-n0qqxoapo3-23ce.googlevideo.com/videoplayback?lmt=1444889598110011&ipbits=0&key=yt6&itag=134&mime=video%2Fmp4&aitags=133%2C134%2C160%2C242%2C243%2C278&fvip=1&pcm2cms=yes&pl=22&keepalive=yes&requiressl=yes&expire=1517895214&gir=yes&initcwndbps=1592500&sparams=aitags%2Cclen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Ckeepalive%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpcm2cms%2Cpl%2Crequiressl%2Csource%2Cexpire&id=o-AOx9gItMq4krQpOWXftrODrlHUX0iSism75irJXDF-YQ&ei=zul4WtbkBIGk8wTLpYOoBA&ip=50.25.23.151&clen=81407238&mv=m&mt=1517873473&ms=au%2Crdu&dur=2670.083&mn=sn-n0qqxoapo3-23ce%2Csn-p5qs7n7z&mm=31%2C29&source=youtube&signature=73E281330DDD2BAAB738E167AE823D379C310A9B.58F76D892935F5D58FAE48D52F3D0F1F8EAF6631&ratebypass=yes
-https://r1---sn-n0qqxoapo3-23ce.googlevideo.com/videoplayback?lmt=1496496016227645&ipbits=0&key=yt6&itag=251&mime=audio%2Fwebm&fvip=1&pcm2cms=yes&pl=22&keepalive=yes&requiressl=yes&expire=1517895214&gir=yes&initcwndbps=1592500&sparams=clen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Ckeepalive%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpcm2cms%2Cpl%2Crequiressl%2Csource%2Cexpire&id=o-AOx9gItMq4krQpOWXftrODrlHUX0iSism75irJXDF-YQ&ei=zul4WtbkBIGk8wTLpYOoBA&ip=50.25.23.151&clen=42126297&mv=m&mt=1517873473&ms=au%2Crdu&dur=2670.101&mn=sn-n0qqxoapo3-23ce%2Csn-p5qs7n7z&mm=31%2C29&source=youtube&signature=912AD5170E37918D192A6E5612F06520717568F3.02AC928837A56832D92460D2BF8700C8A53D151B&ratebypass=yes
-
