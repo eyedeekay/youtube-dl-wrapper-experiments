@@ -46,5 +46,5 @@ else
         PID=$(/usr/lib/yget/ydl_echo_pid $@)
         echo "$PID" | tee "$PID.pid"
         /usr/lib/yget/ydl_supervise_pid &
-    then
+    fi
 fi
