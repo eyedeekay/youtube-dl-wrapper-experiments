@@ -1,6 +1,6 @@
 # yget
 
-A wrapper around youtube-dl for the particular.
+A fake supervisor for easier management of long youtube-dl downloads.
 
 ## description
 
