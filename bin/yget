@@ -39,11 +39,12 @@ if [ ! -z $1 ]; then
         fi
     fi
 else
-    mkdir -p "$YGET_uploader"
-    mv vars.sh "$YGET_uploader"
-    cd "$YGET_uploader" || exit
-    mkfifo stop
-    PID=$(/usr/lib/yget/ydl_echo_pid $@)
-    echo "$PID" | tee "$PID.pid"
-    /usr/lib/yget/ydl_supervise_pid &
+    . /usr/lib/yget/ydl_get_metadata
+    if [ "$YGET_resume" = "yes" ]; then
+        cd "$YGET_uploader" || exit
+        mkfifo stop
+        PID=$(/usr/lib/yget/ydl_echo_pid $@)
+        echo "$PID" | tee "$PID.pid"
+        /usr/lib/yget/ydl_supervise_pid &
+    then
 fi
