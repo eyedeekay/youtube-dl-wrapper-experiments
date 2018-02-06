@@ -18,7 +18,8 @@ if [ ! -f vars.sh ]; then
     YGET_uploader=$(echo "$YGET_json" | jq -cr '. | { uploader }' | sed 's|{"uploader":"||g' | tr -d '"}')
     YGET_description=$(echo "$YGET_json" | jq -cr '. | { description }' | sed 's|{"description":"||g' | tr -d '"}')
 
-    echo "YGET_title='$YGET_title'
+    echo "#! /usr/bin/env sh
+    YGET_title='$YGET_title'
     YGET_id='$YGET_id'
     YGET_webpage_url='$YGET_webpage_url'
     YGET_uploader='$YGET_uploader'
@@ -26,6 +27,7 @@ if [ ! -f vars.sh ]; then
     YGET_dlurl='$YGET_dlurl'
     " | tee vars.sh
 else
-    . vars.sh
+    find -name vars.sh
+    . "./vars.sh"
     echo "YGET_resume=yes" | tee -a vars.sh
 fi
