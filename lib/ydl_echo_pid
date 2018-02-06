@@ -9,6 +9,11 @@ if [ -f $HOME/.config/yget.conf ]; then
 fi
 
 ydl_do_pid(){
+    if [ -f "./.yget.info.json" ]; then
+        YGET_youtubedl_opts="--load-info-json ./.yget.info.json $YGET_youtubedl_opts"
+    else
+        YGET_youtubedl_opts="--write-info-json ./.yget.info.json $YGET_youtubedl_opts"
+    fi
     youtube-dl $YGET_youtubedl_opts $@ 1>log 2>err &
     echo "$!"
 }

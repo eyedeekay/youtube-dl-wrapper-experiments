@@ -41,11 +41,15 @@ if [ ! -z $1 ]; then
         fi
     fi
 else
-    . /usr/lib/yget/ydl_get_metadata
-    if [ "$YGET_resume" = "yes" ]; then
-        mkfifo stop
-        PID=$(/usr/lib/yget/ydl_echo_pid $@)
-        echo "$PID" | tee "$PID.pid"
-        /usr/lib/yget/ydl_supervise_pid &
+    if [ -f ./vars.sh ]; then
+        . /usr/lib/yget/ydl_get_metadata
+        if [ "$YGET_resume" = "yes" ]; then
+            mkfifo stop
+            PID=$(/usr/lib/yget/ydl_echo_pid $@)
+            echo "$PID" | tee "$PID.pid"
+            /usr/lib/yget/ydl_supervise_pid &
+        fi
+    else
+        echo "No vars.sh and no url given. aborting."
     fi
 fi
