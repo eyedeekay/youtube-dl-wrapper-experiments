@@ -30,6 +30,7 @@ if [ ! -z $1 ]; then
             /usr/lib/yget/ydl_supervise_pid &
         else
             mkdir -p "$YGET_uploader"
+            mv vars.sh "$YGET_uploader"
             cd "$YGET_uploader" || exit
             mkfifo stop
             PID=$(/usr/lib/yget/ydl_echo_pid $@)
