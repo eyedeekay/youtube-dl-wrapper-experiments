@@ -41,7 +41,6 @@ if [ ! -z $1 ]; then
 else
     . /usr/lib/yget/ydl_get_metadata
     if [ "$YGET_resume" = "yes" ]; then
-        cd "$YGET_uploader" || exit
         mkfifo stop
         PID=$(/usr/lib/yget/ydl_echo_pid $@)
         echo "$PID" | tee "$PID.pid"
