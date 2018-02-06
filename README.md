@@ -32,6 +32,11 @@ Stop a download by killing the process:
 
         yget -k
 
+Stop a download by signaling the supervisor through a named pipe and letting
+the supervisor kill the process:
+
+        echo y > stop
+
 Resume a previous download from within the download directory.
 
         yget
